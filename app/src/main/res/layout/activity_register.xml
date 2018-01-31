@@ -49,18 +49,45 @@
         android:weightSum="1">
         <TextView
             android:layout_marginLeft="10dp"
-            android:id="@+id/reg_tv_id"
+            android:id="@+id/reg_tv_email"
             android:layout_width="90dp"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:text="账        号 :"
+            android:text="邮        箱 :"
+            android:textColor="#191919"/>
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:gravity="left|center"
+            android:id="@+id/reg_et_email"
+            android:singleLine="true"
+            android:layout_width="200dp"
+            android:hint="请输入邮箱"
+            android:layout_height="match_parent"
+            android:background="@drawable/btn_register"
+            android:layout_weight="0.45" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:weightSum="1">
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/reg_tv_phone"
+            android:layout_width="90dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:text="手  机  号 :"
             android:textColor="#191919"/>
         <EditText
             android:gravity="left|center"
-            android:id="@+id/reg_et_id"
+            android:id="@+id/reg_et_phone"
             android:singleLine="true"
             android:layout_width="200dp"
-            android:hint="请使用学号注册"
+            android:hint="请输入手机号"
             android:layout_height="match_parent"
             android:background="@drawable/btn_register"
             android:layout_weight="0.45"/>
@@ -100,7 +127,7 @@
 
         <TextView
             android:layout_marginLeft="10dp"
-            android:id="@+id/reg_tv_password_1"
+            android:id="@+id/reg_tv_repassword"
             android:layout_width="90dp"
             android:gravity="center"
             android:layout_height="match_parent"
@@ -110,7 +137,7 @@
         <EditText
             android:gravity="left|center"
             android:inputType="textPassword"
-            android:id="@+id/reg_et_password1"
+            android:id="@+id/reg_et_repassword"
             android:singleLine="true"
             android:layout_width="200dp"
             android:hint="请再次确认密码"
@@ -119,32 +146,7 @@
             android:layout_weight="0.45"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:weightSum="1">
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:id="@+id/reg_tv_email"
-            android:layout_width="90dp"
-            android:gravity="center"
-            android:layout_height="match_parent"
-            android:text="邮        箱 :"
-            android:textColor="#191919"/>
 
-        <EditText
-            android:inputType="textEmailAddress"
-            android:gravity="left|center"
-            android:id="@+id/reg_et_email"
-            android:singleLine="true"
-            android:layout_width="200dp"
-            android:hint="请输入邮箱"
-            android:layout_height="match_parent"
-            android:background="@drawable/btn_register"
-            android:layout_weight="0.45" />
-    </LinearLayout>
 
     <Button
         android:layout_marginTop="35dp"

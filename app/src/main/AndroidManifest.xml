@@ -23,7 +23,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.LoadActivity">
+        <activity android:name=".UI.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UI.RegisterActivity"/>
-        <activity android:name=".UI.Menu"/>
+        <activity android:name=".UI.MenuActivity"/>
     </application>
 
 </manifest>
