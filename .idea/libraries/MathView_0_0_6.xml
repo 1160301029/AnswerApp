@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="MathView-0.0.6">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/824676153e0b0bcf904935e03520a84acd830f16/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/824676153e0b0bcf904935e03520a84acd830f16/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/824676153e0b0bcf904935e03520a84acd830f16/output/jars/libs/chunk-templates-3.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.kexanie.library/MathView/0.0.6/826dc8ece4b9c724ff3ae7509188e44ea94d8435/MathView-0.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

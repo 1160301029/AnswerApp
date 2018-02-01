@@ -32,6 +32,8 @@
         </activity>
         <activity android:name=".UI.RegisterActivity"/>
         <activity android:name=".UI.MenuActivity"/>
+        <activity android:name=".UI.ChapterListActivity"/>
+        <activity android:name=".UI.TestActivity"/>
     </application>
 
 </manifest>

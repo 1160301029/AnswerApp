@@ -52,4 +52,7 @@ dependencies {
     //dialog
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+
+    //MathView
+    compile 'io.github.kexanie.library:MathView:0.0.6'
 }

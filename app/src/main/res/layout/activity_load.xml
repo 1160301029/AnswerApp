@@ -93,7 +93,7 @@
             android:layout_height="45dp"
             android:gravity="center"
             android:id="@+id/ld_load"
-            android:background="@drawable/button"
+            android:background="@drawable/button_right"
             android:layout_marginRight="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
