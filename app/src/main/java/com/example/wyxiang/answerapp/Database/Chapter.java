@@ -19,4 +19,12 @@ public class Chapter extends BmobObject{
     public Integer getNumber() {
         return number;
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
 }

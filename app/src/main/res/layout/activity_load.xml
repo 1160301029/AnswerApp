@@ -85,7 +85,7 @@
             android:text="注册"
             android:layout_weight="1"
             android:textColor="#FFFFFF"
-            android:background="@drawable/zhuce"
+            android:background="@drawable/button_left"
             android:layout_marginLeft="30dp"
             />
         <Button

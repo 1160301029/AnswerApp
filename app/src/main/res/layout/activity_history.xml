@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:auto="http://schemas.android.com/tools"
+    android:id="@+id/activity_mid_exam"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:layout_gravity="right"/>
+
+        <io.github.kexanie.library.MathView
+            android:id="@+id/mv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            auto:engine="MathJax"/>
+
+
+        <RadioGroup
+            android:layout_marginTop="10dp"
+            android:id="@+id/mRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/mRadioA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/mv_answerA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_right"
+                    auto:engine="MathJax"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/mRadioB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/mv_answerB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_right"
+                    auto:engine="MathJax"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/mRadioC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/mv_answerC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_right"
+                    auto:engine="MathJax"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/mRadioD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <io.github.kexanie.library.MathView
+                    android:id="@+id/mv_answerD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_right"
+                    auto:engine="MathJax"/>
+            </LinearLayout>
+
+        </RadioGroup>
+
+        <io.github.kexanie.library.MathView
+            android:layout_marginTop="10dp"
+            android:id="@+id/mv_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            auto:engine="MathJax"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_up"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_left"
+                android:text="上一题" />
+
+            <Button
+                android:id="@+id/btn_down"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_right"
+                android:layout_weight="1"
+                android:text="下一题" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

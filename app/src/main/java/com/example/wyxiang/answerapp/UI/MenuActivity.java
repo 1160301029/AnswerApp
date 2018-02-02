@@ -29,6 +29,15 @@ public class MenuActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MenuActivity.this,ChapterListActivity.class);
+                intent.putExtra("model","Test");
+                startActivity(intent);
+            }
+        });
+        btn_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuActivity.this,ChapterListActivity.class);
+                intent.putExtra("model","History");
                 startActivity(intent);
             }
         });
