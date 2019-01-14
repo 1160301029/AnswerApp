@@ -23,7 +23,7 @@ import cn.bmob.v3.listener.SaveListener;
  * Created by wyxiang on 08.07.17.
  */
 
-public class RegisterActivity extends AppCompatActivity implements TextWatcher {
+public class SignUpActivity extends AppCompatActivity implements TextWatcher {
 
 
     private EditText et_name;
@@ -39,12 +39,12 @@ public class RegisterActivity extends AppCompatActivity implements TextWatcher {
     private String password;
     private String repassword;
     private String mail;
-    private String TAG = "RegisterActivity";
+    private String TAG = "SignUpActivity";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
+        setContentView(R.layout.activity_signup);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.reg_toolbar);
         setSupportActionBar(toolbar);
@@ -78,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity implements TextWatcher {
                     @Override
                     public void done(Users users, BmobException e) {
                         if (e==null){
-                            Toast.makeText(RegisterActivity.this,"注册成功，请查看邮箱验证",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this,"注册成功，请查看邮箱验证",Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "done: 注册成功");
                             finish();
                         }else {

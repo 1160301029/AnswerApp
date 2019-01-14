@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load);
+        setContentView(R.layout.activity_login);
 
         Bmob.initialize(this,"03ed672534583aab5914232995118da3");
 
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements TextWatcher {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,
-                        RegisterActivity.class);
+                        SignUpActivity.class);
                 startActivity(intent);
             }
         });
