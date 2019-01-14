@@ -29,6 +29,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.SignUpActivity"/>
+        <activity android:name=".ui.MainActivity"/>
+
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.example.answerapp.BmobContentProvider">
+        </provider>
     </application>
 
 </manifest>

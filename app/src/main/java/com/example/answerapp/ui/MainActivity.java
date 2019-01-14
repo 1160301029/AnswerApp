@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         btn_test = (Button) findViewById(R.id.menu_test);
         btn_history = (Button) findViewById(R.id.menu_history);
 

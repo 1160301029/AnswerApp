@@ -44,6 +44,7 @@ public class SignUpActivity extends AppCompatActivity implements TextWatcher {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("注册");
 
         Bmob.initialize(this,"03ed672534583aab5914232995118da3");
 
