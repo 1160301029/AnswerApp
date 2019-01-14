@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wyxiang.answerapp">
+    package="com.example.answerapp">
 
     <!--允许联网 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +15,6 @@
     <!--允许读取手机状态 用于创建BmobInstallation-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,18 +22,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.LoginActivity">
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.RegisterActivity"/>
-        <activity android:name=".UI.MenuActivity"/>
-        <activity android:name=".UI.ChapterListActivity"/>
-        <activity android:name=".UI.TestActivity"/>
-        <activity android:name=".UI.HistoryActivity"/>
     </application>
 
 </manifest>

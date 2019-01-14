@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,8 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.example.wyxiang.answerapp.UI.LoginActivity"
-    android:background="@drawable/load_back">
+    android:background="@drawable/bg_login">
 
     <ImageView
         android:layout_width="145dp"
@@ -38,7 +35,7 @@
             android:gravity="center"
             android:id="@+id/ld_et_id"
             android:singleLine="true"
-            android:background="@drawable/text_view_border"
+            android:background="@drawable/text_view_border_up"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             />
@@ -64,7 +61,7 @@
             android:gravity="center"
             android:singleLine="true"
             android:selectAllOnFocus="false"
-            android:background="@drawable/edit"
+            android:background="@drawable/text_view_border_down"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             />
@@ -99,7 +96,7 @@
             android:layout_marginLeft="20dp"
             android:layout_weight="2"
             android:layout_gravity="right"
-            android:text="登陆"
+            android:text="登录"
             android:enabled="false"
             android:textColor="#FFFFFF"/>
         />

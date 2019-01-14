@@ -1,18 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 28
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.example.wyxiang.answerapp"
+        applicationId "com.example.answerapp"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        /**兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'**/
-        useLibrary 'org.apache.http.legacy'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -23,36 +20,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
 
-    //以下SDK开发者请根据需要自行选择
-    //bmob-sdk：Bmob的android sdk包，包含了Bmob的数据存储、文件等服务，以下是最新的bmob-sdk:
-    //3.5.5：请务必查看下面注释[1]
-    compile 'cn.bmob.android:bmob-sdk:3.5.5'
-
-    //bmob-push：Bmob的推送包
-    compile 'cn.bmob.android:bmob-push:0.8'
-
-    //bmob-im：Bmob的即时通讯包，注意每个版本的im依赖特定版本的bmob-sdk，具体的依赖关系可查看下面注释[2]
-    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
-    compile 'cn.bmob.android:bmob-sdk:3.4.7-aar'
-
-    //bmob-sms ：Bmob单独为短信服务提供的包
-    compile 'cn.bmob.android:bmob-sms:1.0.1'
-
-    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
-    compile 'cn.bmob.android:http-legacy:1.0'
+    // bmob数据库依赖
+    implementation 'cn.bmob.android:bmob-sdk:3.6.9'
+    implementation "io.reactivex.rxjava2:rxjava:2.2.2"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'com.squareup.okio:okio:2.1.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 
     //dialog
-    compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.github.sd6352051.niftydialogeffects:niftydialogeffects:1.0.0@aar'
 
     //MathView
-    compile 'io.github.kexanie.library:MathView:0.0.6'
+//    implementation 'io.github.kexanie.library:MathView:0.0.6'
 }
