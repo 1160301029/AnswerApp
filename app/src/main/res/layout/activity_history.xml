@@ -14,6 +14,7 @@
         android:layout_height="@dimen/main_bar"
         android:background="@color/colorPrimary"
         app:title="历史记录"
+        app:titleTextColor="@color/white"
         android:orientation="horizontal">
 
         <LinearLayout
