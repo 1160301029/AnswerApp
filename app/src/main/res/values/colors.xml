@@ -4,4 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="white">#FFFAFA</color>
+
+    <color name="right">#1AFA29</color>
+    <color name="error">#ff0000</color>
+    <color name="default1">#8a8a8a</color>
+    <!--<color name="white">#ffffff</color>-->
+    <color name="black333">#333333</color>
 </resources>

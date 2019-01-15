@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +30,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.SignUpActivity"/>
-        <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".ui.TestActivity"/>
+        <activity android:name=".ui.LoginActivity"/>
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
