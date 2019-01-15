@@ -1,8 +1,9 @@
 package com.example.answerapp.database;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class History extends Question{
+public class History extends Question implements Serializable {
 
     private String usrId;
 

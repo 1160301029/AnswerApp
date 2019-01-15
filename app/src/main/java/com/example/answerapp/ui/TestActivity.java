@@ -1,6 +1,7 @@
 package com.example.answerapp.ui;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,6 +21,7 @@ import com.example.answerapp.util.DefineTimer;
 import com.example.answerapp.util.Util;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -248,7 +250,7 @@ public class TestActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);
         String usrId = preferences.getString("userMail","");
 
-        List<BmobObject> histories = new ArrayList<>();
+        final List<BmobObject> histories = new ArrayList<>();
         for(Question q : questions){
             History history = new History(q);
             history.setFinishTime(time);
@@ -272,7 +274,10 @@ public class TestActivity extends AppCompatActivity {
                     }
 
                     // finish
-
+                    Intent intent = new Intent(TestActivity.this, HistoryActivity.class);
+                    intent.putExtra("history", (Serializable) histories);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(TestActivity.this, "存储失败，请重试", Toast.LENGTH_SHORT).show();
                 }

@@ -32,6 +32,8 @@
         <activity android:name=".ui.SignUpActivity"/>
         <activity android:name=".ui.TestActivity"/>
         <activity android:name=".ui.LoginActivity"/>
+        <activity android:name=".ui.HistoryActivity"/>
+        <activity android:name=".ui.HistoryListActivity"/>
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
