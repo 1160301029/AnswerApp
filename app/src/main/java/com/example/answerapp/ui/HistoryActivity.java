@@ -1,6 +1,5 @@
 package com.example.answerapp.ui;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import android.view.View;
@@ -12,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.answerapp.R;
 
-import com.example.answerapp.adapter.HistoryAdapter;
+import com.example.answerapp.adapter.HistoryIndexAdapter;
 import com.example.answerapp.database.History;
 
 import com.example.answerapp.fragment.HistoryFragment;
@@ -98,7 +97,7 @@ public class HistoryActivity extends AppCompatActivity {
         gridView.setVerticalSpacing(10);
         gridView.setHorizontalSpacing(10);
         gridView.setBackgroundColor(0xffffffff);
-        gridView.setAdapter(new HistoryAdapter(histories));
+        gridView.setAdapter(new HistoryIndexAdapter(histories));
         gridView.setScrollBarStyle(GridView.SCROLLBARS_OUTSIDE_INSET);
         gridView.setPadding(20, 20, 20, 20);
         bottomSheetDialog.setContentView(gridView);

@@ -16,5 +16,10 @@
         android:icon="@drawable/history"
         app:showAsAction="always" />
 
+    <item android:id="@+id/wrong_book"
+        android:title="查看错题"
+        android:icon="@drawable/wrong_book"
+        app:showAsAction="always" />
+
 
 </menu>

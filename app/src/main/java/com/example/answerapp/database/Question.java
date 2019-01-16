@@ -14,7 +14,7 @@ public class Question extends BmobObject implements Serializable {
 
     protected String title; // 题目
 
-    protected String type; // 题型: 单选/多选/判断
+    protected String type; // 题型: 单选/多选/判断 -> Single/Multi/Judge
 
     // 最多留个选项
     protected String option0;

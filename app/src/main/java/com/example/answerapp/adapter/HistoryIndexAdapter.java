@@ -13,13 +13,13 @@ import com.example.answerapp.util.Util;
 
 import java.util.List;
 
-public class HistoryAdapter extends BaseAdapter {
+public class HistoryIndexAdapter extends BaseAdapter {
 
 
     private List<History> histories;
 
 
-    public HistoryAdapter(List<History> histories){
+    public HistoryIndexAdapter(List<History> histories){
         this.histories = histories;
     }
 
@@ -42,9 +42,9 @@ public class HistoryAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         History history = histories.get(position);
 
-        HistoryAdapter.ViewHolder viewHolder;
+        HistoryIndexAdapter.ViewHolder viewHolder;
         if (convertView == null) {
-            viewHolder = new HistoryAdapter.ViewHolder();
+            viewHolder = new HistoryIndexAdapter.ViewHolder();
             int width = Util.getScreenWidth(parent.getContext());
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_circle, parent, false);
             AbsListView.LayoutParams params = new AbsListView.LayoutParams(width / 9, width / 9);
@@ -52,7 +52,7 @@ public class HistoryAdapter extends BaseAdapter {
             viewHolder.tv.setLayoutParams(params);
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (HistoryAdapter.ViewHolder) convertView.getTag();
+            viewHolder = (HistoryIndexAdapter.ViewHolder) convertView.getTag();
         }
 
         viewHolder.tv.setText((position + 1) + "");

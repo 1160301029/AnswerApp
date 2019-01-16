@@ -13,13 +13,13 @@ import com.example.answerapp.util.Util;
 
 import java.util.List;
 
-public class AnswerAdapter extends BaseAdapter {
+public class QuestionIndexAdapter extends BaseAdapter {
 
 
     private List<Question> questions;
 
 
-    public AnswerAdapter(List<Question> questions){
+    public QuestionIndexAdapter(List<Question> questions){
         this.questions = questions;
     }
 

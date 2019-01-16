@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.answerapp.R;
 import com.example.answerapp.database.Chapter;
 import com.example.answerapp.database.History;
+import com.example.answerapp.database.HistoryList;
 import com.example.answerapp.database.Question;
 
 import java.io.Serializable;
@@ -77,15 +78,15 @@ public class HistoryListActivity extends AppCompatActivity {
             }
         });
 
-        BmobQuery<History> query = new BmobQuery<>();
+        BmobQuery<HistoryList> query = new BmobQuery<>();
         query.setLimit(500);
         query.addWhereEqualTo("usrId", usrId);
-        query.findObjects(new FindListener<History>() {
+        query.findObjects(new FindListener<HistoryList>() {
             @Override
-            public void done(List<History> objects, BmobException e) {
+            public void done(List<HistoryList> objects, BmobException e) {
                 if (e == null) {
                     historySet = new HashSet<>();
-                    for (History history : objects){
+                    for (HistoryList history : objects){
                         historySet.add(history.getFinishTime());
                     }
 

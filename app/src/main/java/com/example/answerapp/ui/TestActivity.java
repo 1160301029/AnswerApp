@@ -13,9 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.answerapp.R;
-import com.example.answerapp.adapter.AnswerAdapter;
+import com.example.answerapp.adapter.QuestionIndexAdapter;
 import com.example.answerapp.database.History;
+import com.example.answerapp.database.HistoryList;
 import com.example.answerapp.database.Question;
+import com.example.answerapp.database.WrongBook;
 import com.example.answerapp.fragment.QuestionFragment;
 import com.example.answerapp.util.DefineTimer;
 import com.example.answerapp.util.Util;
@@ -37,6 +39,7 @@ import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.datatype.BatchResult;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.QueryListListener;
+import cn.bmob.v3.listener.SaveListener;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -53,6 +56,8 @@ public class TestActivity extends AppCompatActivity {
     private TextView submit;
 
     private List<Question> questions;
+
+    private boolean isHistoryFinish = false, isHistoryListFinish = false, isWrongBookFinish = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +163,7 @@ public class TestActivity extends AppCompatActivity {
         gridView.setVerticalSpacing(10);
         gridView.setHorizontalSpacing(10);
         gridView.setBackgroundColor(0xffffffff);
-        gridView.setAdapter(new AnswerAdapter(questions));
+        gridView.setAdapter(new QuestionIndexAdapter(questions));
         gridView.setScrollBarStyle(GridView.SCROLLBARS_OUTSIDE_INSET);
         gridView.setPadding(20, 20, 20, 20);
         bottomSheetDialog.setContentView(gridView);
@@ -244,19 +249,47 @@ public class TestActivity extends AppCompatActivity {
 
     //提交答案
     private void saveHistory() {
-        String time = Util.getSystemTime();
+        final String time = Util.getSystemTime();
         Log.d(TAG, "saveHistory: " + time);
 
+
         SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);
-        String usrId = preferences.getString("userMail","");
+        final String usrId = preferences.getString("userMail","");
 
         final List<BmobObject> histories = new ArrayList<>();
+        final List<BmobObject> wrongBooks = new ArrayList<>();
         for(Question q : questions){
+            if (q.getFinish() && q.getSelectedId() != q.getAnswerId()){
+                WrongBook wrongBook = new WrongBook(q);
+                wrongBook.setUsrId(usrId);
+                wrongBooks.add(wrongBook);
+            }
             History history = new History(q);
             history.setFinishTime(time);
             history.setUsrId(usrId);
             histories.add(history);
         }
+
+
+
+        HistoryList historyList = new HistoryList();
+        historyList.setFinishTime(time);
+        historyList.setUsrId(usrId);
+        historyList.save(new SaveListener<String>() {
+            @Override
+            public void done(String s, BmobException e) {
+                if (e == null){
+                    // finish
+                    isHistoryListFinish = true;
+                    if ((isHistoryFinish && isHistoryListFinish && isWrongBookFinish)){
+                        Intent intent = new Intent(TestActivity.this, HistoryActivity.class);
+                        intent.putExtra("history", (Serializable) histories);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+            }
+        });
 
         new BmobBatch().insertBatch(histories).doBatch(new QueryListListener<BatchResult>() {
 
@@ -272,12 +305,44 @@ public class TestActivity extends AppCompatActivity {
                             Log.d(TAG, "done: " + "第" + i + "个数据批量添加失败：" + ex.getMessage() + "," + ex.getErrorCode());
                         }
                     }
-
                     // finish
-                    Intent intent = new Intent(TestActivity.this, HistoryActivity.class);
-                    intent.putExtra("history", (Serializable) histories);
-                    startActivity(intent);
-                    finish();
+                    isHistoryFinish = true;
+                    if ((isHistoryFinish && isHistoryListFinish && isWrongBookFinish)){
+                        Intent intent = new Intent(TestActivity.this, HistoryActivity.class);
+                        intent.putExtra("history", (Serializable) histories);
+                        startActivity(intent);
+                        finish();
+                    }
+
+                } else {
+                    Toast.makeText(TestActivity.this, "存储失败，请重试", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        new BmobBatch().insertBatch(wrongBooks).doBatch(new QueryListListener<BatchResult>() {
+
+            @Override
+            public void done(List<BatchResult> results, BmobException e) {
+                if (e == null) {
+                    for (int i = 0; i < results.size(); i++) {
+                        BatchResult result = results.get(i);
+                        BmobException ex = result.getError();
+                        if (ex == null) {
+                            Log.d(TAG, "done: " + "第" + i + "个数据批量添加成功：" + result.getCreatedAt() + "," + result.getObjectId() + "," + result.getUpdatedAt());
+                        } else {
+                            Log.d(TAG, "done: " + "第" + i + "个数据批量添加失败：" + ex.getMessage() + "," + ex.getErrorCode());
+                        }
+                    }
+                    // finish
+                    isWrongBookFinish = true;
+                    if ((isHistoryFinish && isHistoryListFinish && isWrongBookFinish)){
+                        Intent intent = new Intent(TestActivity.this, HistoryActivity.class);
+                        intent.putExtra("history", (Serializable) histories);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 } else {
                     Toast.makeText(TestActivity.this, "存储失败，请重试", Toast.LENGTH_SHORT).show();
                 }
